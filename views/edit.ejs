@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product || Ecommerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar  -->
+    <%- include('Navbar') %>
+
+        <form action="/product/<%= product._id %>?_method=PATCH" method="post" class="container-sm my-2 mx-auto">
+            <h4>Title:</h4><input class="form-control" type="text" placeholder="Enter Title"
+                aria-label="default input example" name="title" value="<%= product.title %>">
+            <br>
+            <h4>Description:</h4><input class="form-control" type="text" placeholder="Description"
+                aria-label="default input example" name="description" value="<%= product.description %>"><br>
+            <h4>Price:</h4><input class="form-control" type="number" placeholder="$" aria-label="default input example"
+                name="price" value="<%= product.price %>"><br>
+            <h4>Discount:</h4><input class="form-control" type="number" placeholder="%"
+                aria-label="default input example" name="discountPercentage" value="<%= product.discountPercentage %>"><br>
+            <h4>Brand:</h4><input class="form-control" type="text" placeholder="brand"
+                aria-label="default input example" name="brand" value="<%= product.brand %>"><br>
+            <h4>Category:</h4><input class="form-control" type="text" placeholder="category"
+                aria-label="default input example" name="category" value="<%= product.category %>"><br>
+            <h4>Thumnail:</h4><input class="form-control" type="text" placeholder="image link"
+                aria-label="default input example" name="thumbnail" value="<%= product.thumbnail %>"><br>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

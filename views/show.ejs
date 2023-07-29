@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item: <%= item.title %> || Ecommerce App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .c {
+        margin: 2rem;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .Reviews {
+        width: 25rem;
+    }
+
+    a {
+        text-decoration: none;
+        outline: none;
+        color: aliceblue;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    /* #rating_bar:hover>span:before {
+        color: #4bce32;
+    } */
+    /* 
+    #rating_bar>span:hover~span:before {
+        color: #c7c5c5;
+    } */
+    #rating_bar {
+        width: 100px;
+        height: 100px;
+        /* margin: 4px 175px !important; */
+        display: inline-block;
+        display: inline;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+
+    #rating_bar>span:before {
+        /* content: 'O'; */
+        color: #c7c5c5;
+        height: 100px;
+        width: 100px;
+        cursor: pointer;
+        font-size: 2em;
+    }
+
+    #rating_bar>span:hover:before,
+    #rating_bar span:hover~span:before {
+        color: gold;
+    }
+    #price{
+        float: right;
+    }
+    form{
+        display: inline;
+    }
+</style>
+
+<body>
+
+    <!-- navbar -->
+
+    <%- include('Navbar') %>
+    
+
+        <div class="container c">
+            <div class="card" style="width: 25rem;">
+                <img src="<%= item.thumbnail %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= item.title %> <span id="price">$<%= item.price %></span>
+                    </h5>
+                    <p class="card-text">
+                        <%= item.description %>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Discount : <%= item.discountPercentage %>
+                    </li>
+                    <li class="list-group-item">Brand : <%= item.brand %>
+                    </li>
+                    <li class="list-group-item">Category : <%= item.category %>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <button class="btn btn-primary"><a href="#" class="card-link">Buy Now</a></button>
+                    <button class="btn btn-info"><a href="/product/<%= item.id %>/edit" class="card-link">Edit</a></button>
+                    <form action="/product/<%= item.id %>?_method=DELETE" method="post">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <button class="btn btn-success"><a href="#" class="card-link">Add To Cart</a></button>
+                </div>
+            </div>
+            <div class="Reviews">
+                <h1>Leave Your Review</h1>
+                <div class="stars" id="rating_bar">
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div><br>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="btn btn-success">Submit</div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
