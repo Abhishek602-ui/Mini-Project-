@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        
+        .expected-delivery {
+            float: right;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            /* text-align: center; */
+        }
+        @media (min-width: 1025px) {
+            .h-custom {
+                height: 100vh !important;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+        buyBest
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li> -->
+            </ul>
+
+            <div class="box" style="color: white; font-size: 1.2rem; margin: 0 20px;">Hii, <span style="color: rgb(219, 52, 52); font-size: 1.3rem;"><%=name%></span></div>
+        </div>
+    </nav>
+
+
+    <section class="h-100 gradient-custom">
+        <div class="container py-2">
+            <div class="row d-flex justify-content-center my-4">
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h5 class="mb-0">Cart - items</h5>
+                        </div>
+                        <div class="card-body">
+                            
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                    <!-- Image -->
+                                    <div class="bg-image hover-overlay hover-zoom ripple rounded"
+                                        data-mdb-ripple-color="light">
+                                        <img
+                                            src="<%= item.thumbnail %>"
+                                            class="w-100" alt="phone" />
+                                        <a href="#!">
+                                            <div class="mask"
+                                                style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                    
+                                    <p><strong><%= item.title %></strong></p>
+                                    <p>Discount: <%= item.discountPercentage %></p>
+                                    <p>Rating: <%= item.rating %></p>
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                    
+                                    <div class="form-outline" style="max-width: 300px">
+                                        <input id="form1" min="0" name="quantity" value="1" type="number"
+                                            class="form-control quantity-input" onchange="calculateTotal()" />
+                                        <label class="form-label" for="form1">Quantity</label>
+                                    </div>
+
+                                    
+                                    <p class="text-start text-md-center" ">
+                                        <strong><%= item.price %></strong>
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                            
+
+                            <hr class="my-4" />
+
+                            
+                            <!-- <div class="row"> -->
+                                <!-- <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                    
+                                    <div class="bg-image hover-overlay hover-zoom ripple rounded"
+                                        data-mdb-ripple-color="light">
+                                        <img
+                                            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+                                            class="w-100" />
+                                        <a href="#!">
+                                            <div class="mask"
+                                                style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                        </a>
+                                    </div> -->
+                                    <!-- Image -->
+                                <!-- </div> -->
+
+                                <!-- <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                    
+                                    <p><strong>Red hoodie</strong></p>
+                                    <p>Color: red</p>
+                                    <p>Size: M</p>
+
+                                </div> -->
+
+                                <!-- <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"> -->
+                                    <!-- Quantity -->
+                                    <!-- <div class="form-outline" style="max-width: 300px">
+                                        <input id="form2" min="0" name="quantity" value="1" type="number"
+                                            class="form-control quantity-input" onchange="calculateTotal()" />
+                                        <label class="form-label" for="form2">Quantity</label>
+                                    </div> -->
+
+                                    <!-- Price -->
+                                    <!-- <p class="text-start text-md-center">
+                                        <strong>$17.99</strong>
+                                    </p> -->
+                                    
+                                <!-- </div> -->
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- <div class="card mb-4 expected-delivery">
+                        <div class="card-body">
+                            <p><strong>Expected shipping delivery</strong></p>
+                            <p class="mb-0">12.10.2020 - 14.10.2020</p>
+                        </div>
+                    </div> -->
+                    <div class="card mb-4 mb-lg-0">
+                        <div class="card-body">
+                            <p><strong>We accept</strong></p>
+                            <img class="me-2" width="45px"
+                                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                                alt="Visa" />
+                            <img class="me-2" width="45px"
+                                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                                alt="American Express" />
+                            <img class="me-2" width="45px"
+                                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                                alt="Mastercard" />
+                            <img class="me-2" width="45px"
+                                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.webp"
+                                alt="PayPal acceptance mark" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h5 class="mb-0">Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <div>
+                                        <strong>Total amount</strong>
+                                        <strong>
+                                            <p class="mb-0">(including VAT)</p>
+                                        </strong>
+                                    </div>
+                                    <span id="totalAmount"><strong>$<%=item.price%></strong></span>
+                                </li>
+                            </ul>
+
+                            <button type="button" class="btn btn-dark btn-lg btn-block">
+                                Go to checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark">
+        <p style="margin-left: 20px;">&copy; 2023 buyBest. All rights reserved.</p>
+    </footer>
+    <script>
+        
+        function calculateTotal() {
+            var quantity1 = document.getElementById("form1").value;
+            // var quantity2 = document.getElementById("form2").value;
+
+            var price1 = document.getElementById("he").value ;
+            // var price2 = 17.99;
+
+            var total = (quantity1 * price1) ;
+            // console.log(total)
+
+  
+            // document.getElementById("totalAmount").innerText = price1.value;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 {
   "name": "abhishekporwal",
   "version": "1.0.0",
-  "description": "This is a Hackathon project",
+  "description": "Mini Project",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
